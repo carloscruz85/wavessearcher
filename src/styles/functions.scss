@@ -44,15 +44,17 @@ $breakaux: ("tablet", "pc", "lg") !default;
   }
 }
 
-@keyframes maxi {
-  from {
-    transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-  }
-  to {
-    transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-  }
+@mixin center-center() {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: red;
+}
+
+@mixin back-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }

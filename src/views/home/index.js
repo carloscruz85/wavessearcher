@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Menu from '../../components/menu';
 
 
 const App = () => {
@@ -7,9 +8,7 @@ const App = () => {
   }, []);
   return (
     <div>
-
-     Hi
-
+     <Menu />
     </div>
   );
 };
