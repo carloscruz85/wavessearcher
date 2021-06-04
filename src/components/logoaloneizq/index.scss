@@ -1,0 +1,21 @@
+@import '../../styles/index.scss';
+
+.logo-alone-izq-container {
+  // @include multi(display, none, none, block, block);
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include multi(padding, 1rem 2rem, 2rem, 2rem, 6rem);
+    @include multi(width, 30px, 50px, 75px, 125px);
+    box-sizing: content-box;
+    z-index: 9999;
+  }
+
+  .logo-izq-full {
+    @include multi(display, none, none, block, block);
+  }
+  .logo-izq-min {
+    @include multi(display, block, block, none, none);
+  }
+}

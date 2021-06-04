@@ -1,0 +1,87 @@
+@import '../../styles/index.scss';
+
+.trigger{
+  img{
+    width: 70%;
+  }
+}
+
+.max-menu {
+  //background-color: rgba(255,255,255,0.5);
+  @include multi(display, none, none, flex, flex);
+  width: 98%;
+  flex-direction: row-reverse;
+  position: absolute;
+  top: 0;
+  //padding: 1rem;
+  color: white;
+  @include multi(font-size, 15px, 15px, 8px, 16px);
+  @include multi(padding-right, 1rem, 1rem, 3.5rem, 8rem);
+  ul {
+    list-style-type: none;
+    @include multi(padding, 3rem 0 0 0, 3rem 0 0 0, 1rem 0 0 0, 3rem 0 0 0);
+    @include multi(margin, 3rem 0 0 0, 3rem 0 0 0, 1rem 0 0 0, 3rem 0 0 0);
+    li {
+      padding-bottom: 3rem;
+      @include multi(padding-bottom, 3rem, 3rem, 1rem, 3rem);
+      opacity: 0.5;
+      a {
+        color: white !important;
+        &:hover {
+          color: $light_brown !important;
+        }
+      }
+    }
+  }
+}
+
+.min-menu {
+  z-index: 9999;
+  color: white;
+  @include multi(display, flex, flex, none !important, none !important);
+  // @include multi(display, none, none, none, none);
+  width: 90%;
+  position: absolute;
+  top: 1rem;
+  flex-direction: row-reverse;
+  img {
+    @include multi(max-width, 3rem, 3rem, 8px, 16px);
+  }
+  .min-menu-items {
+    animation: FadeIn 0.3s linear;
+    position: relative;
+    top: -20px;
+    width: 100%;
+  }
+  ul {
+    right: 0.1rem;
+    position: absolute;
+    background: rgb(150, 73, 34);
+    background: linear-gradient(
+      180deg,
+      rgba(150, 73, 34, 1) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    margin: 0;
+    padding: 2rem;
+    list-style-type: none;
+    li {
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      text-align: center;
+      a {
+        color: white !important;
+      }
+    }
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    top: -500px;
+  }
+
+  100% {
+    top: -20px;
+  }
+}

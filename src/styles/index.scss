@@ -1,0 +1,187 @@
+@import "./vars.scss";
+@import "./functions.scss";
+
+.brown-color{
+  color: $soft_brown;
+}
+
+.inline-block{
+  display: inline-block !important;
+}
+
+.just-mobile-block{
+  @include multi(display, block, block, none, none);
+}
+
+.just-pc-block{
+  @include multi(display, none, none, block, block);
+}
+
+.just-mobile-flex{
+  @include multi(display, flex, flex, none, none);
+}
+
+.just-pc-flex{
+  @include multi(display, none, none, flex, flex);
+}
+
+.just-mobile-inline-block{
+  @include multi(display, inline-block, inline-block, none, none);
+}
+
+.just-pc-inline-block{
+  @include multi(display, none, none, inline-block, inline-block);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin center-center() {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin default-text {
+  @include multi(line-height, 1.5rem, 1.5rem, 1rem, 1rem);
+  @include multi(padding, 1rem, 1rem, 0, 0);
+  letter-spacing: 0.1rem;
+  font-family: avenir-book;
+  // opacity: 0.5;
+  font-size: 0.8rem !important;
+  color: white;
+  @include multi(opacity, 1 !important,1 !important,0.5,0.5);
+}
+
+@mixin full-full {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin back-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.default-text {
+  @include default-text();
+}
+
+.title {
+  font-family: niveau-grotesk-small-caps, sans-serif;
+  @include multi(font-size, 30px, 30px, 30px, 40px);
+  font-weight: 900;
+}
+
+/* titles default */
+.title-default-container {
+  text-align: center;
+  .title-default {
+    font-family: niveau-grotesk-small-caps, sans-serif;
+    @include multi(font-size, 30px, 30px, 30px, 40px);
+    font-weight: 900;
+    @include multi(
+      border-bottom,
+      3px solid $soft_brown,
+      5px solid $soft_brown,
+      2px solid $soft_brown,
+      5px solid $soft_brown
+    );
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .intro-default {
+    margin: 1rem 0 !important;
+    @include default-text();
+  }
+}
+/* titles default */
+
+.inner-title {
+  color: white;
+  text-transform: uppercase;
+  font-family: Avenir-book;
+  @include multi(font-size, 30px, 30px, 18px, 20px);
+  opacity: 1 !important;
+}
+
+.title-name {
+  font-family: niveau-grotesk-small-caps, sans-serif;
+  @include multi(font-size, 30px, 30px, 18px, 25px);
+  font-weight: 900;
+}
+
+.subtitle {
+  color: $soft_brown;
+  @include multi(font-size, 12px, 12px, 15px, 20px);
+  @include multi(margin-bottom, 1rem, 1rem, 1rem, 1rem);
+  // font-weight: bold;
+  font-family: Avenir-book;
+}
+
+.content-about-us-team {
+  opacity: 0.5;
+  @include multi(width, 100%, 100%, 70%, 70%);
+  line-height: 1.5rem;
+  // border: 1px solid yellow;
+}
+
+.opacity-text {
+  opacity: 0.5;
+}
+
+.center-center {
+  @include center-center();
+}
+
+.main-button-container {
+  @include center-center();
+  @include multi(flex-direction, row, row, column, column);
+  @include multi(align-items, center, center, flex-start, flex-start);
+  .main-button {
+    background: rgb(150, 73, 34);
+    background: linear-gradient(
+      184deg,
+      rgba(150, 73, 34, 1) 0%,
+      rgba(100, 34, 0, 1) 100%
+    );
+    padding: 1rem;
+    border-radius: 1.5rem;
+    padding: 0.5rem 2rem;
+    @include multi(font-size, 0.8rem, 0.8rem, 0.8rem, 1rem);
+    box-shadow: 1px 1px 10px black;
+  }
+}
+
+.cta-button {
+  background: rgb(150, 73, 34);
+  background: linear-gradient(
+    184deg,
+    rgba(150, 73, 34, 1) 0%,
+    rgba(100, 34, 0, 1) 100%
+  );
+  padding: 1rem;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  @include multi(font-size, 0.8rem, 0.8rem, 0.5rem, 0.8rem);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.p-under-title {
+  font-family: avenir-book;
+  color: white;
+  opacity: 0.5;
+  //width: 30%;
+  @include multi(width, 80%, 80%, 50%, 30%);
+  @include multi(font-size, 15px, 15px, 10px, 15px);
+  @include multi(line-height, 1.5rem, 1.5rem, 1rem, 2rem);
+}
+
+.cta-contact {
+  font-weight: bolder;
+}
