@@ -1,5 +1,4 @@
 
-
 export default function basicButton(name, i) {
     const img = require('../../assets/images/'+name);
     return (
