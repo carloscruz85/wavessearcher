@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import Logo from '../../assets/images/logo-surf-city.png'
 import {DataContext} from '../../context/context'
+import List from '../list'
 
 const App = () => {
 
@@ -11,8 +12,11 @@ const App = () => {
     window.scrollTo(0, 0);
     
   }, []);
+  console.log(globalData.filtered.length);
   return (
-    <div className="container" >
+    <>
+      {globalData.filtered.length === 0 || globalData.filtered.length === undefined ?
+      <div className="container" >
         <div className="logo-container">
           <img src={Logo} alt="Surf City" className="logo"/>
         </div>
@@ -22,6 +26,10 @@ const App = () => {
           }
         </div>
     </div>
+    : <List />
+    }
+    </>
+
   );
 };
 

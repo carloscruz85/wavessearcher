@@ -20,7 +20,7 @@ const Destination = (props) => {
     const options = [1,2,5,6]
 
     const move = (p)=>{
-        console.log(p);
+        // console.log(p);
         setPosition( position + p )
     }
     
@@ -40,7 +40,7 @@ const Destination = (props) => {
                         <div className="destination" key={i}>
 
                         <div className="gallery">
-                                    { position !== 0 ? <div className="left" onClick={ () => { move(-100) } }><i class="fa fa-angle-left"></i></div> : null }
+                                    { position !== 0 ? <div className="left" onClick={ () => { move(-100) } }><i className="fa fa-angle-left"></i></div> : null }
                                     
                                     <div className="img-container" style={{left: `-${position}%`}}>
                                     <img className="gal-item" src={d[1].image} alt="img"/>
@@ -52,7 +52,7 @@ const Destination = (props) => {
                                         } ) : null }
                                     </div>
                                     
-                                    { position === (gallery.length) * 100 ? null : <div className="right" onClick={ () => { move(100) } }><i class="fa fa-angle-right"></i></div> }
+                                    { position === (gallery.length) * 100 ? null : <div className="right" onClick={ () => { move(100) } }><i className="fa fa-angle-right"></i></div> }
 
                                     
                                 </div>                            
