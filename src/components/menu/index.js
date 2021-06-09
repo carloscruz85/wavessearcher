@@ -1,72 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./index.scss";
-import Trigger from "../../assets/images/menu.png";
+import React, {useContext, useEffect, useState} from 'react'
+import basicButton from '../../logic/basic-button'
+import './index.scss'
+import { DataContext } from '../../context/context'
+import {Link} from 'react-router-dom'
+import House from '../../assets/images/house.png'
 
-const Menu = (props) => {
-  const [trigger, setTrigger] = useState(true);
-  const items = [
-    // { name: 'HOME', link: '/' },
-    { name: "ABOUT US", link: "/aboutus" },
-    { name: "OUR WORK", link: "/ourwork" },
-    { name: "SERVICES", link: "/services" },
-    { name: "CONTACT", link: "contact" },
-  ];
+function Menu() {
+    const { globalData, dispatch, filtered } = useContext(DataContext)
+    const [globalTerms, setGlobalTerms] = useState( [] )
+    const {lang} = globalData
+    // console.log(globalData);
+    const dataLocal = JSON.parse(window.localStorage.getItem('ws-data'))
+    // const terms = Object.entries(dataLocal.terms)
 
-  // const items = [
-  //   // { name: 'HOME', link: '/' },
-  //   { name: 'About Us', link: '/underconstruction' },
-  //   { name: 'Our Work', link: '/underconstruction' },
-  //   { name: 'Services', link: '/underconstruction' },
-  //   { name: 'Contact', link: '/underconstruction' },
-  // ]
-  return (
-    <div>
-      <div className="max-menu">
-        <ul>
-          {items.map((d, i) => {
-            return (
-              <li key={i}>
-                <Link to={d.link}>{d.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className={`min-menu ${props.auxclass}`}>
-        {trigger ? (
-          <div
-            className="trigger"
-            onClick={() => {
-              setTrigger(false);
-            }}
-          >
-            <img alt="menu" src={Trigger} />
-          </div>
-        ) : (
-          <div className="min-menu-items">
-            <ul>
-              {items.map((d, i) => {
-                return (
-                  <li key={i}>
-                    {" "}
-                    <Link to={d.link}>{d.name}</Link>
-                  </li>
-                );
-              })}
-              <li
-                onClick={() => {
-                  setTrigger(true);
-                }}
-              >
-                Close menu
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+    useEffect(() => {
+        if(globalData.data === null){
+            dispatch({ type: 'ADD_DATA', data: dataLocal })
+            // console.log(dataLocal);
+        }
 
-export default Menu;
+        
+    if( globalData.terms )
+        setGlobalTerms(Object.entries(globalData.terms))
+    }, [ globalData, dispatch, filtered])
+
+    // console.log(globalData);
+
+    return (
+        <div className="menu">
+            <Link to={'/'} className="basic-button" >
+                <img src={House} alt="home"/>
+            </Link>
+            <div onClick={ () => { dispatch({ type:'CHANGE_LANG' }) } } className=" text" >
+                { lang === 'es' ? 'EN' : 'ES' }
+            </div>
+             {
+            globalTerms.lenght !== 0 ?
+            globalTerms
+                .map( (term,iimg) => {
+                    // console.log(term);
+                    return basicButton(term,iimg)
+                } )
+                : null
+            } 
+
+        </div>
+    )
+}
+
+export default Menu
