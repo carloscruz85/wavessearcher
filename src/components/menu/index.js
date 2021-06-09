@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import House from '../../assets/images/house.png'
 
 function Menu() {
-    const { globalData, dispatch } = useContext(DataContext)
+    const { globalData, dispatch, filtered } = useContext(DataContext)
     const [globalTerms, setGlobalTerms] = useState( [] )
     const {lang} = globalData
     // console.log(globalData);
@@ -18,10 +18,11 @@ function Menu() {
             dispatch({ type: 'ADD_DATA', data: dataLocal })
             // console.log(dataLocal);
         }
+
         
     if( globalData.terms )
         setGlobalTerms(Object.entries(globalData.terms))
-    }, [ globalData, dispatch])
+    }, [ globalData, dispatch, filtered])
 
     // console.log(globalData);
 

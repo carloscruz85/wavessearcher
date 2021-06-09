@@ -25,7 +25,6 @@ const Section = (props) => {
 
   // console.log(globalData.terms[props.match.params.section]);
 
-  console.log(destinations.length);
   return (
     <div className="container">
         {  globalData.terms[props.match.params.section] ? 
