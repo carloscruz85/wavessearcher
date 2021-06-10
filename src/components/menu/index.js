@@ -4,6 +4,7 @@ import './index.scss'
 import { DataContext } from '../../context/context'
 import {Link} from 'react-router-dom'
 import House from '../../assets/images/house.png'
+import Lupa from '../../assets/images/lupa.png'
 
 function Menu() {
     const { globalData, dispatch, filtered } = useContext(DataContext)
@@ -43,7 +44,9 @@ function Menu() {
                 } )
                 : null
             } 
-
+            <Link to={'/search'} className="basic-button" >
+                <img src={Lupa} alt="search"/>
+            </Link>
         </div>
     )
 }

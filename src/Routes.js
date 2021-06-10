@@ -4,6 +4,7 @@ import Home from "./views/home";
 import Section from './views/section';
 import List from './views/list'
 import Destination from './views/destination'
+import Search from './views/search'
 import DataProvider from './context/context'
 import Loader from './components/loader'
 import axios from 'axios'
@@ -46,7 +47,7 @@ function App() {
     // pass localstorage to context
     
 
-  }, []);
+  }, [loader]);
   // SaveInContext('data in')
   // const { data, dispatch } = useContext(DataContext)
   return (
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/section/:section" component={Section} />
             <Route exact path="/list/" component={List} />
             <Route exact path="/destination/:destination" component={Destination} />
+            <Route exact path="/search" component={Search} />
           </DataProvider>
         </Switch>
       : null
