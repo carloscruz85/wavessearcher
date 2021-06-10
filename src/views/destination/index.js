@@ -32,6 +32,7 @@ const Destination = (props) => {
                     
                     if( destination[1].title.replace( ' ', '_' ).toLowerCase() === props.match.params.destination )
                     return destination
+                    else return null
                 } ).map( (d,i) => {
                     // console.log(d[1]);
                     let gallery = Object.entries(d[1].gallery)
@@ -85,7 +86,7 @@ const Destination = (props) => {
                             
                             { option === 2 ? <Services title="Lodging" services={d[1].lodging} /> : null }
                             { option === 5 ? <Services title="Restaurants" services={d[1].food} /> : null }
-                            { option === 6 ? <Waves /> : null }
+                            { option === 6 ? <Waves terms={d[1].terms} /> : null }
                             { option === 8 ? <StreetView streetview={d[1].streetview} /> : null }
 
                         </div>

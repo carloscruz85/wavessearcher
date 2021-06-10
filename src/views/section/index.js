@@ -19,7 +19,7 @@ const Section = (props) => {
     
   }, [globalData, props.match.params.section]);
 
-  const data = JSON.parse(window.localStorage.getItem('ws-data'))
+  // const data = JSON.parse(window.localStorage.getItem('ws-data'))
   // console.log(globalData.terms, childs);
   // const terms = Object.entries(data.terms[props.match.params.section].childs)
 

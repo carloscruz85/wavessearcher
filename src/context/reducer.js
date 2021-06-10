@@ -42,8 +42,12 @@ export const reducer = (state, action) => {
                 }, [] )
 
 
-                if( result > 0)
-                 return item[1]
+                if( result > 0){
+                    return item[1]
+                }
+                else{
+                    return null
+                }
             }  )
 
             // console.log(state.pool.length);

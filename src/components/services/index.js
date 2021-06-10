@@ -22,13 +22,15 @@ const Services = (props) => {
                                 <div className="service">
                                     <div className="title-service">{s[1].title}</div>
                                     <div className="address">{s[1].details.Address}</div>
-                                    <div><a target="_blank" href={`mailto:${s[1].details.mail}`}>{s[1].details.mail}</a></div>
-                                    <div><a target="_blank" href={`https://instagram.com/${s[1].details.instagram}`}>{s[1].details.instagram}</a>  </div>
-                                    <div><a target="_blank" href={`https://facebook.com/${s[1].details.facebook}`}>{s[1].details.facebook}</a>  </div>
-                                    <div><a target="_blank" href={`${s[1].details.web}`}>{s[1].details.web}</a>  </div>
+                                    <div><a rel="noreferrer" target="_blank" href={`mailto:${s[1].details.mail}`}>{s[1].details.mail}</a></div>
+                                    <div><a rel="noreferrer" target="_blank" href={`https://instagram.com/${s[1].details.instagram}`}>{s[1].details.instagram}</a>  </div>
+                                    <div><a rel="noreferrer" target="_blank" href={`https://facebook.com/${s[1].details.facebook}`}>{s[1].details.facebook}</a>  </div>
+                                    <div><a rel="noreferrer" target="_blank" href={`${s[1].details.web}`}>{s[1].details.web}</a>  </div>
                                 </div>
                             </div>
                          )
+                     }else{
+                         return null
                      }
                 } )
             }

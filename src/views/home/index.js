@@ -12,7 +12,7 @@ const App = () => {
     window.scrollTo(0, 0);
     
   }, []);
-  console.log(globalData.filtered.length);
+  // console.log(globalData.filtered.length);
   return (
     <>
       {globalData.filtered.length === 0 || globalData.filtered.length === undefined ?
