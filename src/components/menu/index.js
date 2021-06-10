@@ -11,16 +11,15 @@ function Menu() {
     const [globalTerms, setGlobalTerms] = useState( [] )
     const {lang} = globalData
     // console.log(globalData);
-    const dataLocal = JSON.parse(window.localStorage.getItem('ws-data'))
+  
     // const terms = Object.entries(dataLocal.terms)
 
     useEffect(() => {
+        const dataLocal = JSON.parse(window.localStorage.getItem('ws-data'))
         if(globalData.data === null){
             dispatch({ type: 'ADD_DATA', data: dataLocal })
             // console.log(dataLocal);
         }
-
-        
     if( globalData.terms )
         setGlobalTerms(Object.entries(globalData.terms))
     }, [ globalData, dispatch, filtered])
