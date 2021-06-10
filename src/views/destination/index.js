@@ -32,6 +32,7 @@ const Destination = (props) => {
                     
                     if( destination[1].title.replace( ' ', '_' ).toLowerCase() === props.match.params.destination )
                     return destination
+                    else return null
                 } ).map( (d,i) => {
                     // console.log(d[1]);
                     let gallery = Object.entries(d[1].gallery)
