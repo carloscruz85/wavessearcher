@@ -85,7 +85,7 @@ const Destination = (props) => {
                             
                             { option === 2 ? <Services title="Lodging" services={d[1].lodging} /> : null }
                             { option === 5 ? <Services title="Restaurants" services={d[1].food} /> : null }
-                            { option === 6 ? <Waves /> : null }
+                            { option === 6 ? <Waves terms={d[1].terms} /> : null }
                             { option === 8 ? <StreetView streetview={d[1].streetview} /> : null }
 
                         </div>
