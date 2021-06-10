@@ -7,10 +7,9 @@ function Loader(props) {
     return (
         <div className="loader-container">
            <div className="aro">
-               
             </div>
             <img src={Logo} alt="loader"/>
-            
+            <div className="msg">{props.msg}</div>
         </div>
     )
 }

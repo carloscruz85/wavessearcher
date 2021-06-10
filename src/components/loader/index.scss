@@ -27,4 +27,9 @@ $tol : 80px;
         height: $tol * 0.6 !important;
         position: absolute;
     }
+    .msg{
+        position: absolute;
+        bottom: 0;
+        font-size: 1rem;
+    }
 }
